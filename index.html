@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Let's Play Rock, Paper, Scissors</h1>
+    <script>
+        //generate random number 1-3 for computer selection
+        let computerNum = Math.floor(Math.random() * 3)+1;
+        console.log(computerNum);
+        //assign text to computer selection
+        function computerPlay(n) {
+            if(n === 1) return 'rock';
+            if (n === 2) return 'paper';
+            if (n === 3) return 'scissors';
+        }
+        computerSelection = computerPlay(computerNum)
+        //prompt for player selection
+        let playerSelection = prompt("Choose your fighter:");
+        playerSelection = playerSelection.toLowerCase()
+        console.log(playerSelection)
+        //write game function that takes playerSelection and computerSelection
+        function playRound(c,p) {
+            if (c===p) {
+                console.log('you both picked ' + p + ', try again')
+            }; 
+        }
+        playRound(computerSelection, playerSelection)
+        //return string that declares the winner
+        //loop to play function 5 times
+    </script>
+</body>
+</html>
