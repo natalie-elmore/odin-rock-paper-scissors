@@ -10,18 +10,18 @@
     <script>
         console.log('let\'s play rock, paper, scissors!')
         //generate random number 1-3 for computer selection
-        let computerNum = Math.floor(Math.random() * 3)+1;
+        //let computerNum = Math.floor(Math.random() * 3)+1;
         //console.log(computerNum);
         //assign text to computer selection
-        function computerPlay(n) {
-            if(n === 1) return 'rock';
-            else if (n === 2) return 'paper';
-            else if (n === 3) return 'scissors';
-        }
-        computerSelection = computerPlay(computerNum)
+        //function computerPlay(n) {
+        //    if(n === 1) return 'rock';
+        //    else if (n === 2) return 'paper';
+        //    else if (n === 3) return 'scissors';
+        //}
+        //computerSelection = computerPlay(computerNum)
         //prompt for player selection
-        let playerSelection = prompt("Choose your fighter:");
-        playerSelection = playerSelection.toLowerCase()
+        //let playerSelection = prompt("Choose your fighter:");
+        //playerSelection = playerSelection.toLowerCase()
         //console.log(playerSelection)
         //write game function that takes playerSelection and computerSelection
         function playRound(c,p) {
@@ -43,13 +43,28 @@
                     console.log('you win! ' + p + ' beats ' + c);}
                 else console.log('you lose :( ' + c + ' beats ' + p)}
 
-            else {console.log('invalid response. plase type: rock, paper, or scissors')}
+            else {console.log('invalid response. please type: rock, paper, or scissors')}
                 }
 
+        function game() {
+            for (let i = 0; i < 5; i++) {
+            computerNum = Math.floor(Math.random() * 3)+1;
+            function computerPlay(n) {
+            if(n === 1) return 'rock';
+            else if (n === 2) return 'paper';
+            else if (n === 3) return 'scissors';
+        }
+            c = computerPlay(computerNum)
 
-        playRound(computerSelection, playerSelection)
+            let playerSelection = prompt("Choose your fighter:");
+            p = playerSelection.toLowerCase()
 
-        //loop to play function 5 times
+            playRound(c,p)}
+        }
+
+
+        game()
+        
     </script>
 </body>
 </html>
