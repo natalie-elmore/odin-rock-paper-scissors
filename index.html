@@ -10,10 +10,13 @@
     <script>
         console.log('let\'s play rock, paper, scissors! best of 5 rounds wins')
 
+        //function plays one round
         function playRound(c,p) {
+            //define console log messages for different outcomes
             win = 'you win! ' + p + ' beats ' + c
             lose = 'you lose :( ' + c + ' beats ' + p
             tie = 'you both picked ' + p + ', try again'
+            //return different outcomes based on player and computer choices
             if (c===p) {
                 console.log(tie), outcome='tie'}
             
@@ -34,13 +37,15 @@
 
             else {console.log('invalid response. please type: rock, paper, or scissors')}
                 }
-
+        //function plays five round game
         function game() {
-            //setting initial score values for player and computer
+            //set initial score values for player and computer
             let playerScore = 0
             let computerScore = 0
             let tieScore = 0
+            //loop for 5 round game
             for (let i = 0; i < 5; i++) {
+            //get computer choice by random int 1-3
             computerNum = Math.floor(Math.random() * 3)+1;
             function computerPlay(n) {
             if(n === 1) return 'rock';
@@ -49,11 +54,12 @@
         }
             c = computerPlay(computerNum)
 
+            //get player choice by prompt
             let playerSelection = prompt("Choose your fighter:");
             p = playerSelection.toLowerCase()
-
+            //calling funtion to play one round
             playRound(c,p)
-
+            //add to score based on outcome of round
             if(outcome==='w')
               playerScore++
             if (outcome==='l')
@@ -62,6 +68,7 @@
               tieScore++
             
         }
+            //log final score of 5 round game to console
             console.log('final score '+playerScore+' - '+computerScore+' - '+tieScore)
             if(computerScore > playerScore)
                 console.log('computer wins')
@@ -70,7 +77,7 @@
             else console.log('tie game')
         }
 
-
+        //call game function
         game()
 
     </script>
