@@ -8,45 +8,38 @@
 </head>
 <body>
     <script>
-        console.log('let\'s play rock, paper, scissors!')
-        //generate random number 1-3 for computer selection
-        //let computerNum = Math.floor(Math.random() * 3)+1;
-        //console.log(computerNum);
-        //assign text to computer selection
-        //function computerPlay(n) {
-        //    if(n === 1) return 'rock';
-        //    else if (n === 2) return 'paper';
-        //    else if (n === 3) return 'scissors';
-        //}
-        //computerSelection = computerPlay(computerNum)
-        //prompt for player selection
-        //let playerSelection = prompt("Choose your fighter:");
-        //playerSelection = playerSelection.toLowerCase()
-        //console.log(playerSelection)
-        //write game function that takes playerSelection and computerSelection
+        console.log('let\'s play rock, paper, scissors! best of 5 rounds wins')
+
         function playRound(c,p) {
+            win = 'you win! ' + p + ' beats ' + c
+            lose = 'you lose :( ' + c + ' beats ' + p
+            tie = 'you both picked ' + p + ', try again'
             if (c===p) {
-                console.log('you both picked ' + p + ', try again');}
+                console.log(tie), outcome='tie'}
             
             else if (p==='rock') {
                 if (c==='scissors') {
-                    console.log('you win! ' + p + ' beats ' + c);}
-                else console.log('you lose :( ' + c + ' beats ' + p)}
+                    console.log(win), outcome='w'}
+                else console.log(lose), outcome='l'}
             
             else if (p==='paper') {
                 if (c==='rock') {
-                    console.log('you win! ' + p + ' beats ' + c);}
-                else console.log('you lose :( ' + c + ' beats ' + p)}
+                    console.log(win), outcome='w'}
+                else console.log(lose), outcome='l'}
 
             else if (p==='scissors') {
                 if (c==='paper') {
-                    console.log('you win! ' + p + ' beats ' + c);}
-                else console.log('you lose :( ' + c + ' beats ' + p)}
+                    console.log(win), outcome='w'}
+                else console.log(lose), outcome='l'}
 
             else {console.log('invalid response. please type: rock, paper, or scissors')}
                 }
 
         function game() {
+            //setting initial score values for player and computer
+            let playerScore = 0
+            let computerScore = 0
+            let tieScore = 0
             for (let i = 0; i < 5; i++) {
             computerNum = Math.floor(Math.random() * 3)+1;
             function computerPlay(n) {
@@ -59,12 +52,27 @@
             let playerSelection = prompt("Choose your fighter:");
             p = playerSelection.toLowerCase()
 
-            playRound(c,p)}
+            playRound(c,p)
+
+            if(outcome==='w')
+              playerScore++
+            if (outcome==='l')
+              computerScore++
+            if (outcome==='tie')
+              tieScore++
+            
+        }
+            console.log('final score '+playerScore+' - '+computerScore+' - '+tieScore)
+            if(computerScore > playerScore)
+                console.log('computer wins')
+            else if(computerScore < playerScore)
+                console.log('you win')
+            else console.log('tie game')
         }
 
 
         game()
-        
+
     </script>
 </body>
 </html>
