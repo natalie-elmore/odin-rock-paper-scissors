@@ -17,16 +17,6 @@
         console.log('let\'s play rock, paper, scissors! best of 5 rounds wins')
 
         //function plays one round
-           //the following listens for player choice from buttons
-        //function getChoice() {
-        const btns = document.querySelectorAll('.btn');
-        btns.forEach(btn => {
-        btn.addEventListener('click', event => {
-        let p = btn.id
-        console.log(p);
-            })})
-        //}
-
         function playRound(c,p) {
             //define console log messages for different outcomes
             win = 'you win! ' + p + ' beats ' + c
@@ -61,7 +51,16 @@
             let tieScore = 0
             //loop for 5 round game
             for (let i = 0; i < 5; i++) {
-            //get computer choice by random int 1-3
+            //get player choice by prompt
+            //let playerSelection = prompt("Choose your fighter:");
+            //p = playerSelection.toLowerCase()
+
+            //get player choice by button
+            function getChoice(event) {
+            const btns = document.querySelectorAll('.btn');
+            btns.forEach(btn => {
+            btn.addEventListener('click', event => {
+            const p = `${btn.id}`
             computerNum = Math.floor(Math.random() * 3)+1;
             function computerPlay(n) {
             if(n === 1) return 'rock';
@@ -69,15 +68,6 @@
             else if (n === 3) return 'scissors';
         }
             c = computerPlay(computerNum)
-
-            //get player choice by prompt
-            //let playerSelection = prompt("Choose your fighter:");
-            //p = playerSelection.toLowerCase()
-
-            //get player choice by button
-            //p = getChoice()
-
-            //calling funtion to play one round
             playRound(c,p)
             //add to score based on outcome of round
             if(outcome==='w')
@@ -86,8 +76,6 @@
               computerScore++
             if (outcome==='tie')
               tieScore++
-            
-        }
             //log final score of 5 round game to console
             console.log('final score '+playerScore+' - '+computerScore+' - '+tieScore)
             if(computerScore > playerScore)
@@ -95,9 +83,17 @@
             else if(computerScore < playerScore)
                 console.log('you win')
             else console.log('tie game')
+            
+            })})
+        }
+
+        getChoice(event)
+            
+        }
+
         }
         //call game function
-        //game()
+        game()
 
     </script>
 </body>
