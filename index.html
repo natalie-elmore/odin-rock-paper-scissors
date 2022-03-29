@@ -5,12 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="btns">
+        <div id="rock" class="btn"><button>Rock</button></div>
+        <div id="paper" class="btn"><button>Paper</button></div>
+        <div id="scissors" class="btn"><button>Scissors</button></div>
+    </div>
     <script>
         console.log('let\'s play rock, paper, scissors! best of 5 rounds wins')
 
         //function plays one round
+           //the following listens for player choice from buttons
+        //function getChoice() {
+        const btns = document.querySelectorAll('.btn');
+        btns.forEach(btn => {
+        btn.addEventListener('click', event => {
+        let p = btn.id
+        console.log(p);
+            })})
+        //}
+
         function playRound(c,p) {
             //define console log messages for different outcomes
             win = 'you win! ' + p + ' beats ' + c
@@ -55,8 +71,12 @@
             c = computerPlay(computerNum)
 
             //get player choice by prompt
-            let playerSelection = prompt("Choose your fighter:");
-            p = playerSelection.toLowerCase()
+            //let playerSelection = prompt("Choose your fighter:");
+            //p = playerSelection.toLowerCase()
+
+            //get player choice by button
+            //p = getChoice()
+
             //calling funtion to play one round
             playRound(c,p)
             //add to score based on outcome of round
@@ -76,9 +96,8 @@
                 console.log('you win')
             else console.log('tie game')
         }
-
         //call game function
-        game()
+        //game()
 
     </script>
 </body>
