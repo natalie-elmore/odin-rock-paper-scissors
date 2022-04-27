@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="screen">
     <div class="btns">
         <div id="rock" class="btn"><button>Rock</button></div>
         <div id="paper" class="btn"><button>Paper</button></div>
         <div id="scissors" class="btn"><button>Scissors</button></div>
+    </div>
+        <div id="score" class="score">
+            <h2>0-0-0</h2>
+        </div>
     </div>
     <script>
         console.log('let\'s play rock, paper, scissors! best of 5 rounds wins')
@@ -77,21 +82,22 @@
             if (outcome==='tie')
               tieScore++
             //log final score of 5 round game to console
-            console.log('final score '+playerScore+' - '+computerScore+' - '+tieScore)
+            texttest = playerScore+' - '+computerScore+' - '+tieScore
+            document.getElementById("score").innerHTML = texttest;
+           console.log('final score '+playerScore+' - '+computerScore+' - '+tieScore)
             if(computerScore > playerScore)
                 console.log('computer wins')
             else if(computerScore < playerScore)
                 console.log('you win')
-            else console.log('tie game')
+            else console.log('tie game')  
             
             })})
         }
-
+        
+        }
         getChoice(event)
-            
         }
-
-        }
+        
         //call game function
         game()
 
